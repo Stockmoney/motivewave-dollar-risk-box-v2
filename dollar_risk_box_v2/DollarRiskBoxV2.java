@@ -480,13 +480,6 @@ public class DollarRiskBoxV2 extends Study {
         notifyRedraw();
     }
 
-    /** What the next chart click will do, shown under the panel while the tool is on. */
-    private String placePrompt() {
-        if (placeHint != null) return placeHint;
-        String what = get(placeStep == 0 ? "HINT_ENTRY" : placeStep == 1 ? "HINT_STOP" : "HINT_TARGET");
-        return getSettings().getBoolean(ESC_CANCELS, true) ? what + " (" + get("HINT_ESC") + ")" : what;
-    }
-
     /** The tool on or off (the panel button, or R over the chart): a second press cancels the box being placed. */
     private void toggleTool() {
         boolean off = armed != null;
@@ -1088,7 +1081,7 @@ public class DollarRiskBoxV2 extends Study {
             toolRect = new Rectangle(px + GW + GAP, py, BW, BH);
             font = new Font("SansSerif", Font.BOLD, 14);
             small = new Font("SansSerif", Font.PLAIN, 10);
-            setBounds(new Rectangle(px, py, Math.max(w, 260), BH + 30));
+            setBounds(new Rectangle(px, py, w, BH));
         }
 
         @Override
@@ -1115,20 +1108,6 @@ public class DollarRiskBoxV2 extends Study {
             gc.setColor(new Color(17, 17, 17));
             centred(gc, frc, font, get("BTN_TOOL"), toolRect.getCenterX(), toolRect.y + 18);
             centred(gc, frc, small, get("BTN_TOOL_CAPTION"), toolRect.getCenterX(), toolRect.y + 32);
-            gc.setFont(small);
-            gc.setColor(Color.WHITE);
-            String line;
-            if (on) line = placePrompt();
-            else {
-                DataContext dc = ctx.getDataContext();
-                Instrument instr = dc == null ? null : dc.getInstrument();
-                if (instr == null) return;
-                Costs.Commission c = commission(instr);
-                line = "comm $" + String.format(Locale.US, "%.2f", c.perSide()) + "/side " + c.source() + " \u00b7 slippage "
-                        + getSettings().getInteger(SLIPPAGE, 1) + " tick" + (getSettings().getInteger(SLIPPAGE, 1) == 1 ? "" : "s");
-                gc.setColor(new Color(170, 170, 175));
-            }
-            gc.drawString(line, gripRect.x, py + BH + 13);
         }
 
         /** Glyph outlines centred on their visible bounds (the platform lays text out differently from AWT). */

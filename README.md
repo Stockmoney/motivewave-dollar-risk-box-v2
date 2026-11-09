@@ -50,7 +50,7 @@ Example, MNQ (tick 0.25 = $0.50), $200 risk, stop 40 ticks, target 80 ticks, 1 t
 - **Lucid Trading table**: always that table. **The value below**: always the typed value.
 - **Commission per side ($)**: 0.50 by default.
 
-Under the button the indicator writes what it uses, e.g. `comm $0.50/side Lucid · slippage 1 tick`. Check the numbers with your broker: Lucid's page does not say whether exchange and NFA fees are included.
+Check the numbers with your broker: Lucid's page does not say whether exchange and NFA fees are included.
 
 ## Settings
 
@@ -91,6 +91,7 @@ The arithmetic (`dollar_risk_box_v2/core`: RiskSize, Labels, Costs) has no Motiv
 
 ## Changelog
 
+- **2.0.2** — no text under the Risk box button any more: only the button stays on the chart.
 - **2.0.1** — buttons react to the first click: after a drag the platform sometimes sends no mouse-up click, and the next real press was taken for it and ignored; now only a click within 0.4 s of the end of a drag is ignored.
 - **2.0.0** — first version: the risk box of Futures Tester (one tool and R, three clicks, side from the stop, honest 1R with slippage and commissions, at least 1 contract and a limit, net target, R:R by ticks), commissions Auto / Lucid / typed, zones visible while placing.
 
