@@ -91,6 +91,7 @@ The arithmetic (`dollar_risk_box_v2/core`: RiskSize, Labels, Costs) has no Motiv
 
 ## Changelog
 
+- **2.0.1** — buttons react to the first click: after a drag the platform sometimes sends no mouse-up click, and the next real press was taken for it and ignored; now only a click within 0.4 s of the end of a drag is ignored.
 - **2.0.0** — first version: the risk box of Futures Tester (one tool and R, three clicks, side from the stop, honest 1R with slippage and commissions, at least 1 contract and a limit, net target, R:R by ticks), commissions Auto / Lucid / typed, zones visible while placing.
 
 ## License
