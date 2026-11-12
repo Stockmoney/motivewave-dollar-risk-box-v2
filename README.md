@@ -70,7 +70,7 @@ Check the numbers with your broker: Lucid's page does not say whether exchange a
 2. Put it into the **`MotiveWave Extensions`** folder in your home folder (on macOS `~/MotiveWave Extensions`). MotiveWave picks it up within seconds.
 3. Add it from **Study → Alex Indicators → Dollar Risk Box V2**.
 
-> Tested on macOS with MotiveWave 7.1.3 and CME futures (MNQ, MGC). *Keep above my drawings* reads the platform's internal chart layers (versions 7.1.1–7.1.3); on another version it switches itself off and the rest keeps working.
+> Tested on macOS with MotiveWave 7.1.3–7.1.4 and CME futures (MNQ, MGC). *Keep above my drawings* reads the platform's internal chart layers (versions 7.1.1–7.1.4); on another version it switches itself off and the rest keeps working.
 
 ## Good to know
 
@@ -91,6 +91,7 @@ The arithmetic (`dollar_risk_box_v2/core`: RiskSize, Labels, Costs) has no Motiv
 
 ## Changelog
 
+- **2.0.3** — works with MotiveWave 7.1.4 (checked against its code). *Keep above my drawings* no longer switches itself off when a Price Guide lies above the box: MotiveWave keeps price guides above everything, so the guard now leaves them alone and keeps protecting against the other lines.
 - **2.0.2** — no text under the Risk box button any more: only the button stays on the chart.
 - **2.0.1** — buttons react to the first click: after a drag the platform sometimes sends no mouse-up click, and the next real press was taken for it and ignored; now only a click within 0.4 s of the end of a drag is ignored.
 - **2.0.0** — first version: the risk box of Futures Tester (one tool and R, three clicks, side from the stop, honest 1R with slippage and commissions, at least 1 contract and a limit, net target, R:R by ticks), commissions Auto / Lucid / typed, zones visible while placing.
